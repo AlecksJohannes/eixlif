@@ -7,27 +7,21 @@ import MoviesList from './adapter/MoviesList';
 
 class App extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			movies: []
-		}
-	}
-	render() {
-		return (
-			<Container>
-				<div className="App">
-					<header className="App-header">
-						<img src={logo} className="App-logo" alt="logo" />
-						<h1 className="App-title">Welcome to React</h1>
-					</header>
-					<Container>
-						<MoviesList movies = {this.state.movies}/>
-					</Container>
-				</div>
-			</Container>
-		);
-	}
+  render() {
+    return (
+      <Container>
+        <div className="App">
+          <header className="App-header">
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1 className="App-title">Welcome to React</h1>
+          </header>
+          <Container>
+            <MoviesList />
+          </Container>
+        </div>
+      </Container>
+    );
+  }
 }
 
 export default App;

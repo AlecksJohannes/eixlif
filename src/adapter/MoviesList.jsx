@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {getMoviesFromApi} from '../http/Request';
+import {getMoviesFromApi, searchMovies} from '../http/Request';
 import Movie from '../model/Movie';
 
 class MoviesList extends Component {
@@ -14,13 +14,26 @@ class MoviesList extends Component {
 
   componentDidMount() {
     setTimeout(() => {
-        getMoviesFromApi().then((response) => {
+      getMoviesFromApi().then((response) => {
         this.setState({
           movies: response,
           isLoading: false
         })
       })
     }, 4000)
+  }
+
+  showAlert(query) {
+    this.setState({
+      isLoading: true
+    })
+
+    searchMovies(query).then((response) => {
+      this.setState({
+        movies: response,
+        isLoading: false
+      })
+    })
   }
 
   render() {

@@ -99,8 +99,17 @@ class MoviesList extends Component {
         </InfiniteScroll>
         )
       } else {
-				return (
-						<TitleList movies={this.state.movies}/>
+        return (
+        <InfiniteScroll
+          pageStart={1}
+          loadMore={this.handleInfiniteLoad.bind(this)}
+          hasMore={true || false}
+          loader={<div className="loader"></div>}>
+          {
+            <TitleList movies={this.state.movies}/>
+          }
+        </InfiniteScroll>
+
 				)
       }
     }

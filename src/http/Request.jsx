@@ -19,7 +19,7 @@ function getMoviesFromApi() {
       return responseJson.results;
     })
     .catch((error) => {
-      console.error(error);
+      alert(error);
     });
 }
 
@@ -30,7 +30,7 @@ function getTopRatedFromApi() {
       return responseJson.results;
     })
     .catch((error) => {
-      console.error(error);
+      alert(error);
     });
 
 }
@@ -58,7 +58,7 @@ function searchMovies(query) {
       return responseJson.results;
     })
     .catch((error) => {
-      console.error(error);
+      alert(error);
     });
 }
 
@@ -69,7 +69,7 @@ function getPopularFromApi() {
       return responseJson.results;
     })
     .catch((error) => {
-      console.error(error);
+      alert(error);
     });
 }
 

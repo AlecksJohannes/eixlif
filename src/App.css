@@ -160,7 +160,7 @@ a.navbar-item:hover {
   position: relative;
   background-size: cover;
   min-height: 800px;
-  background-position: 250px;
+  background-position: -60%;
 }
 
 .Hero .content {
@@ -339,23 +339,26 @@ a.navbar-item:hover {
 .Item .overlay .title {
   font-size: 22px;
   font-weight: 200;
-  opacity: 0;
+  opacity: 1;
+  color: white;
   -webkit-transition: opacity .25s ease;
   transition: opacity .25s ease;
 }
 .Item .overlay .rating {
+  color: white;
   font-size: 14px;
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: opacity .25s ease .125s;
   transition: opacity .25s ease .125s;
 }
 .Item .overlay .plot {
+  color: white;
   font-size: 14px;
   display: -webkit-box;
   margin-top: 100px;
   font-weight: 300;
   line-height: 1.6;
-  opacity: 0;
+  opacity: 1;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -386,3 +389,12 @@ a.navbar-item:hover {
 .black {
 	color: black !important;
 }
+
+@media screen and (min-width: 1024px)
+.container.is-fluid {
+    margin-left: initial;
+    max-width: none;
+    width: auto;
+}
+
+

@@ -40,9 +40,9 @@ class App extends Component {
          <div>
            <Upcomming />
          </div>
-         <Container style={{flex: 1}}>
+         <Container isFluid={true} style={{margin: 0}}>
            <div className="App">
-             <Container>
+             <Container isFluid={true} style={{margin: 0}}>
                <MoviesList ref="child" />
              </Container>
            </div>

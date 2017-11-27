@@ -4,38 +4,50 @@ import { Container, Field, Label, Control, Input } from 'bloomer';
 import './App.css';
 import "bulma/css/bulma.css";
 import MoviesList from './adapter/MoviesList';
+import Navigation from './component/Navigation';
+import Upcomming from './component/Upcomming';
+import {compose} from 'react-compose';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.triggerChildAlert = this.triggerChildAlert.bind(this)
+    this.handleSearchChange = this.handleSearchChange.bind(this)
+    this.getTopRated = this.getTopRated.bind(this)
+    this.getPopular = this.getPopular.bind(this)
+  }
+  
+  handleSearchChange(text) {
+    this.refs.child.queryByTitle(text)
   }
 
-  triggerChildAlert(query) {
-    this.refs.child.showAlert(query)
+  getTopRated() {
+    this.refs.child.getTopRated()
   }
+
+  getPopular() {
+    this.refs.child.getPopular()
+  }
+
 
   render() {
-    return (
-      <Container>
-        <Field>
-          <Label>Name</Label>
-          <Control>
-            <Input type="text" placeholder='Text Input' onChange={(e) => this.triggerChildAlert(e.target.value) } />
-          </Control>
-        </Field>
+    return(
+       <div>
+         <header className="Header">
+           <Navigation onSearchChange={this.handleSearchChange} onGetTopRated={this.getTopRated} onGetPopular={this.getPopular} />
+         </header>
 
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <Container>
-            <MoviesList ref="child" />
-          </Container>
-        </div>
-      </Container>
+         <div>
+           <Upcomming />
+         </div>
+         <Container style={{flex: 1}}>
+           <div className="App">
+             <Container>
+               <MoviesList ref="child" />
+             </Container>
+           </div>
+         </Container>
+       </div>
     );
   }
 }

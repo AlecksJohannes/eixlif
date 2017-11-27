@@ -1,25 +1,53 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { Container } from 'bloomer';
+import { Container, Field, Label, Control, Input } from 'bloomer';
 import './App.css';
 import "bulma/css/bulma.css";
 import MoviesList from './adapter/MoviesList';
+import Navigation from './component/Navigation';
+import Upcomming from './component/Upcomming';
+import {compose} from 'react-compose';
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.handleSearchChange = this.handleSearchChange.bind(this)
+    this.getTopRated = this.getTopRated.bind(this)
+    this.getPopular = this.getPopular.bind(this)
+  }
+  
+  handleSearchChange(text) {
+    this.refs.child.queryByTitle(text)
+  }
+
+  getTopRated() {
+    this.refs.child.getTopRated()
+  }
+
+  getPopular() {
+    this.refs.child.getPopular()
+  }
+
+
   render() {
-    return (
-      <Container>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          <Container>
-            <MoviesList />
-          </Container>
-        </div>
-      </Container>
+    return(
+       <div>
+         <header className="Header">
+           <Navigation onSearchChange={this.handleSearchChange} onGetTopRated={this.getTopRated} onGetPopular={this.getPopular} />
+         </header>
+
+         <div>
+           <Upcomming />
+         </div>
+         <Container style={{flex: 1}}>
+           <div className="App">
+             <Container>
+               <MoviesList ref="child" />
+             </Container>
+           </div>
+         </Container>
+       </div>
     );
   }
 }

@@ -6,7 +6,10 @@
     "bloomer": "^0.6.2",
     "bulma": "^0.6.1",
     "react": "^16.1.1",
+    "react-compose": "^2.0.0",
     "react-dom": "^16.1.1",
+    "react-infinite": "^0.12.1",
+    "react-infinite-scroller": "^1.1.1",
     "react-scripts": "1.0.17",
     "reactbulma": "^1.1.1"
   },

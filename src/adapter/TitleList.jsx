@@ -9,7 +9,7 @@ export default class TitleList extends Component {
           <div className="Title">
             <h1>Now Playing</h1>
             <div className="titles-wrapper">
-              <Item movies={this.props.movies} />
+              <Item onShowTrailer={(id) => this.props.onShowTrailer(id)} movies={this.props.movies} />
             </div>
           </div>
         </div>

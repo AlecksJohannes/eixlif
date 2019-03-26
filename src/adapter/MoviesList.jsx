@@ -106,7 +106,7 @@ class MoviesList extends Component {
           hasMore={true || false}
           loader={<div className="loader"></div>}>
           {
-            <TitleList movies={this.state.movies}/>
+            <TitleList onShowTrailer={(id) => this.props.onShowTrailer(id)} movies={this.state.movies}/>
           }
         </InfiniteScroll>
 

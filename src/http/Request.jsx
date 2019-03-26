@@ -9,7 +9,9 @@ const top_rated_url = "https://api.themoviedb.org/3/movie/top_rated?api_key=a07e
 
 const popular_url = "https://api.themoviedb.org/3/movie/popular?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1";
 
-export { getMoviesFromApi, searchMovies, getMoreMoviesFromApi, getTopRatedFromApi, getPopularFromApi };
+const videos_url = (movieId) => `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed&language=en-US&page=1?`
+
+export { getMoviesFromApi, searchMovies, getMoreMoviesFromApi, getTopRatedFromApi, getPopularFromApi, getVideosFromApi };
 
 
 function getMoviesFromApi() {
@@ -73,4 +75,14 @@ function getPopularFromApi() {
     });
 }
 
+function getVideosFromApi(movieId) {
+  return fetch(videos_url(movieId))
+    .then((response) => response.json())
+    .then((responseJson) => {
+      return responseJson.results;
+    })
+    .catch((error) => {
+      alert(error);
+    });
+}
 

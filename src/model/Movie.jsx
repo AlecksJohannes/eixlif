@@ -17,7 +17,7 @@ export default class Movie extends Component {
         isPoppedUp: control
       })
   }
-
+  
   render() {
     return (
        <Box>

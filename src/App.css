@@ -398,3 +398,6 @@ a.navbar-item:hover {
 }
 
 
+.ReactModal__Overlay--after-open {
+  z-index: 5;
+}
